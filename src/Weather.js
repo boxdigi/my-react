@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 
 export default function Weather(props) {
-
   let [city, setCity] = useState("");
   let [temperature, setTemperature] = useState(null);
   let [humidity, setHumidity] = useState(null);
@@ -23,17 +22,23 @@ export default function Weather(props) {
   }
 
   function handleResponse(response) {
-    setTemperature(Math.round(response.data.main.temp));
-    setHumidity(response.data.main.humidity);
-    setWind(Math.round(response.data.wind.speed));
-    setCountry(response.data.sys.country);
-    setCity(response.data.name);
-    setDescription(response.data.weather[0].description);
-    setIcon(
-      `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
+    console.log(response);
+    if (response.status === 200) {
+      setTemperature(Math.round(response.data.main.temp));
+      setHumidity(response.data.main.humidity);
+      setWind(Math.round(response.data.wind.speed));
+      setCountry(response.data.sys.country);
+      setCity(response.data.name);
+      setDescription(response.data.weather[0].description);
+      setIcon(
+        `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+      );
+    } else {
+      alert(
+        "The city is not found in our list. Please verify it and try again 😉 or ask Google"
+      );
+    }
   }
-
   return (
     <div className="Weather">
       <div className="row mt-2">
@@ -54,5 +59,5 @@ export default function Weather(props) {
         </div>
       </div>
     </div>
-  )
+  );
 }

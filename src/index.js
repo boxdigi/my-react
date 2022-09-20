@@ -1,17 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import Search from "./Search";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import "./App.css";
+
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
+
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  <StrictMode>
+    <div className="all">
+      <h1>React AJAX Search Engine</h1>
+      <h3>React, week 3 homework </h3>
+      <div className="app">
+        <Search />
+      </div>
+      <p><a href="/">open-source code</a> by Hanna Veselova</p>
+    </div>
+  </StrictMode>
+)
