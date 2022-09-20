@@ -15,7 +15,7 @@ root.render(
       <div className="app">
         <Search />
       </div>
-      <p><a href="/">open-source code</a> by Hanna Veselova</p>
+      <p><a href="https://github.com/boxdigi/my-react">open-source code</a> by Hanna Veselova</p>
     </div>
   </StrictMode>
 )
